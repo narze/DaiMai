@@ -29,7 +29,7 @@ jobs:
       - name: Check line endings
         run: |
           grep -e '^-.*' README.md | grep -ve 'ได้ไหม!?' > output
-          if [[ $(wc -l < output) -ge 1]]; then
+          if [[ $(wc -l < output) -ge 1 ]]; then
             echo "Those lines do not end with ได้ไหม!?"
             cat output
             exit 1
