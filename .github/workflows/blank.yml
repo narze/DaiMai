@@ -30,7 +30,7 @@ jobs:
         run: |
           grep -e '^-.*' README.md | grep -ve 'ได้ไหม!?' > output
           if [[ $(wc -l < output) -ge 1]]; then
-            echo "Those lines do not end with ได้ไหม!?";
-            cat output;
-            exit 1;
+            echo "Those lines do not end with ได้ไหม!?"
+            cat output
+            exit 1
           fi;
