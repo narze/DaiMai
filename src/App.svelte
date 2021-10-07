@@ -51,7 +51,7 @@
 
 <main class="w-full h-screen flex flex-col justify-center items-center">
   <div class="text-bold py-6 text-center">
-    <h1 class="text-grey my-6 text-2xl">เคยส่งสัยกันมั้ยครับว่า...</h1>
+    <h1 class="text-grey my-6 text-2xl">เคยสงสัยกันมั้ยครับว่า...</h1>
     <h1 class="text-3xl animate-bounce  max-w-lg duration-700">
       {daimai}
     </h1>
