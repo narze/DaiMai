@@ -6,7 +6,7 @@
 </script>
 
 {#if url}
-  <div class="flex gap-2 justify-center w-full fixed bottom-4 center">
+  <div class="flex gap-2 justify-center w-full fixed top-4 center">
     <Facebook class="h-10 w-10" {url} />
     <Twitter class="h-10 w-10" text={title} {url} />
   </div>
