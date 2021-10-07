@@ -8,10 +8,8 @@
   import Social from "./lib/Social.svelte"
 
   import { onMount } from "svelte"
-  import { set_data } from "svelte/internal"
 
   let daimai_list = []
-  // ได้ไหม?
 
   let daimai_id = 0
 
@@ -51,7 +49,7 @@
     }
   })
 
-  const url = "https://single-page-svelte.vercel.app"
+  const url = "https://daimai.vercel.app/"
   const title = "ได้ไหม 🧵🧶!?"
 
   const menuItems = [{ name: "Github", url: "https://github.com/narze/DaiMai" }]
