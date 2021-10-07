@@ -8,20 +8,31 @@
   import Social from "./lib/Social.svelte"
 
   import { onMount } from "svelte"
-  import { text } from "svelte/internal"
+  import { set_data } from "svelte/internal"
 
   let daimai_list = []
   // ได้ไหม?
-  let daimai = ""
 
-  const randomFromArray = (arr) => {
-    return arr[Math.floor(Math.random() * arr.length)]
+  let daimai_id = 0
+
+  const randomId = (len) => {
+    return Math.floor(Math.random() * len)
   }
 
-  const randomData = () => {
-    daimai = randomFromArray(daimai_list)
+  const randomDataId = () => {
+    daimai_id = randomId(daimai_list.length)
   }
-
+  const setData = (id) => {
+    daimai_id = id
+  }
+  let copied = false
+  const copyLink = () => {
+    navigator.clipboard.writeText(window.location.origin + "?id=" + daimai_id)
+    copied = true
+    setTimeout(() => {
+      copied = false
+    }, 1500)
+  }
   onMount(async () => {
     const res = await fetch(`https://raw.githubusercontent.com/narze/DaiMai/main/README.md`)
     const data_text = await res.text()
@@ -30,7 +41,14 @@
       .filter((line) => line.startsWith("- "))
       .map((line) => line.split("- ")[1])
 
-    randomData()
+    const urlParams = new URLSearchParams(window.location.search)
+    const id = parseInt(urlParams.get("id"))
+
+    if (id != null && id < daimai_list.length) {
+      setData(id)
+    } else {
+      randomDataId()
+    }
   })
 
   const url = "https://single-page-svelte.vercel.app"
@@ -52,17 +70,32 @@
 <main class="w-full h-screen flex flex-col justify-center items-center">
   <div class="text-bold py-6 text-center">
     <h1 class="text-grey my-6 text-2xl">เคยสงสัยกันมั้ยครับว่า...</h1>
-    <h1 class="text-3xl animate-bounce  max-w-lg duration-700">
-      {daimai}
-    </h1>
+    {#if daimai_list[daimai_id] != undefined}
+      <h1 class="text-3xl animate-bounce  max-w-lg duration-700">
+        {daimai_list[daimai_id]}
+      </h1>
+    {:else}
+      <div class=" flex justify-center items-center">
+        <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-900" />
+      </div>
+    {/if}
   </div>
-  <button
-    class="bg-indigo-500 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded"
-    on:click={randomData}
-    title="สุ่มใหม่"
-  >
-    🎲
-  </button>
+  <div class="flex flex-row">
+    <button
+      class="bg-indigo-500 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded mx-2"
+      on:click={randomDataId}
+      title="สุ่มใหม่"
+    >
+      🎲
+    </button>
+    <button
+      class="bg-indigo-500 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded mx-2"
+      on:click={copyLink}
+      title="แชร์เลย"
+    >
+      {copied ? "คัดลอกแล้ว" : "แชร์เลย"}
+    </button>
+  </div>
 </main>
 
 <style>
