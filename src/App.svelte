@@ -52,9 +52,9 @@
 <main class="w-full h-screen flex flex-col justify-center items-center">
   <div class="text-bold py-6 text-center">
     <h1 class="text-grey my-6 text-2xl">เคยส่งสัยกันมั้ยครับว่า...</h1>
-    <div class="text-3xl flex flex-row animate-bounce  max-w-lg duration-700">
-      <h1>{daimai}</h1>
-    </div>
+    <h1 class="text-3xl animate-bounce  max-w-lg duration-700">
+      {daimai}
+    </h1>
   </div>
   <button
     class="bg-indigo-500 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded"
