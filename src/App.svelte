@@ -84,7 +84,7 @@
       on:click={randomDataId}
       title="สุ่มใหม่"
     >
-      🎲
+      <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/1803/1803495.png" alt="">
     </button>
     <button
       class="bg-indigo-500 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded mx-2"
