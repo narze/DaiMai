@@ -84,7 +84,11 @@
       on:click={randomDataId}
       title="สุ่มใหม่"
     >
-      <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/1803/1803495.png" alt="">
+      <img
+        class="h-8"
+        src="https://cdn-icons-png.flaticon.com/512/1803/1803495.png"
+        alt="dice"
+      >
     </button>
     <button
       class="bg-indigo-500 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded mx-2"
@@ -104,4 +108,9 @@
     /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
       "Open Sans", "Helvetica Neue", sans-serif; */
   }
+  button:hover img{
+		transform: rotate(180deg);
+		transform-origin: 50% 50%;
+		transition: transform 0.4s linear;
+	}
 </style>
