@@ -2,6 +2,10 @@
 
 เราสามารถออกไอเดียให้ [BossKerati](https://www.youtube.com/c/BossKerati/videos) ได้ไหม!?
 
+## Rule
+
+ลงท้ายด้วยคำว่า `ได้ไหม!?`
+
 ## The List
 
 เติมด้านล่างได้เลย
